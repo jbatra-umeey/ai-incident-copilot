@@ -1,0 +1,79 @@
+{
+  "evidence": [
+    {
+      "id": "E1",
+      "workflow": "editor-open",
+      "tier": "budget",
+      "baseline_n": 40,
+      "current_n": 40,
+      "baseline_p95_ms": 1246.74,
+      "current_p95_ms": 1783.23,
+      "p95_change_pct": 43.03,
+      "error_rate_change_pp": 10.0,
+      "regression": true
+    },
+    {
+      "id": "E2",
+      "workflow": "editor-open",
+      "tier": "flagship",
+      "baseline_n": 40,
+      "current_n": 40,
+      "baseline_p95_ms": 448.34,
+      "current_p95_ms": 437.84,
+      "p95_change_pct": -2.34,
+      "error_rate_change_pp": 0.0,
+      "regression": false
+    },
+    {
+      "id": "E3",
+      "workflow": "image-export",
+      "tier": "budget",
+      "baseline_n": 40,
+      "current_n": 40,
+      "baseline_p95_ms": 1244.23,
+      "current_p95_ms": 1249.52,
+      "p95_change_pct": 0.43,
+      "error_rate_change_pp": 0.0,
+      "regression": false
+    },
+    {
+      "id": "E4",
+      "workflow": "image-export",
+      "tier": "flagship",
+      "baseline_n": 40,
+      "current_n": 40,
+      "baseline_p95_ms": 440.5,
+      "current_p95_ms": 441.39,
+      "p95_change_pct": 0.2,
+      "error_rate_change_pp": 0.0,
+      "regression": false
+    }
+  ],
+  "skipped": [],
+  "method": "p95 linear interpolation; heuristic +20% latency or +5 percentage-point errors",
+  "interpretation": "Signals for investigation; no statistical significance or causal claim.",
+  "mode": "deterministic",
+  "hypotheses": [
+    {
+      "hypothesis": "A change affecting editor-open on budget devices may explain the regression.",
+      "evidence_ids": [
+        "E1"
+      ],
+      "next_check": "Compare release and configuration changes, then reproduce within the same device tier."
+    }
+  ],
+  "status": "review_required",
+  "trace": [
+    {
+      "step": "validate",
+      "event_count": 320
+    },
+    {
+      "step": "compare_matched_cohorts"
+    },
+    {
+      "step": "await_human_review"
+    }
+  ],
+  "executed_actions": []
+}
